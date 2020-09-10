@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Quản lí sinh viên</title>
+        <title>Quản Lý Sinh Viên</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <h1 class="center">Quản lí danh sách sinh viên</h1>
+        <h1 class="center">Quản Lý Sinh Viên</h1>
         
         <div class="container mt-20">
             
@@ -25,17 +25,42 @@
                                     <label for="">Mã số sinh viên</label>
                                     <input type="text" class="form-control" id="MSSV">
                                     <label for="">Tên sinh viên</label>
-                                    <input type="text" class="form-control" id="Name">
+                                    <input type="text" class="form-control" id="Ten">
                                     <label for="">Email</label>
                                     <input type="text" class="form-control" id="Email">
                                 </div>
-                                <button type="button" onclick="myFunction()" class="btn btn-primary">Submit</button>
-                          </div>
+                                <button type="button" onclick="create()" class="btn btn-success" id="create">Create</button>
+                                <button type="button" onclick="update()" class="btn btn-success" id="update">Update</button>
+                            </div>
                     </div>
                     
                 </div>
+
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                                <h3 class="panel-title">Danh Sách Sinh Viên</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Mã sinh viên</th>
+                                        <th>Tên sinh viên</th>
+                                        <th>Email</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody id = "tableSV">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
+        <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>
+        <script type="text/javascript" src="Validation.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
