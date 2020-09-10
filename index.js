@@ -184,6 +184,15 @@ function clear_request_view(){
     document.getElementById('create').style.visibility = 'visible'
 }
 
+function deleteSV(ID){
+    for( var i = 0; i < listSV.length; i++){ 
+        if ( listSV[i].MSSV === parseInt(ID)) {
+          listSV.splice(i, 1); 
+        }
+     }
+    viewDSSV();
+}
+
 function viewDSSV(){
     let HTML = '';
     listSV.forEach((SV, index) => {
