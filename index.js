@@ -38,7 +38,8 @@ function is_present_email(Email){
 
 function have_diffirent_email(ID, Email){
     SinhVien = find_SV(ID);
-    SinhVien.Email == Email;
+    if(SinhVien.Email != Email) return true;
+    else return false;
 }
 
 function is_null_param(ID,value)
@@ -104,8 +105,6 @@ function create(){
 }
 
 function update(){
-    let email_temp = document.getElementById("Email").value
-
     let MSSV = document.getElementById("MSSV").value
     let Ten = document.getElementById("Ten").value
     let Email = document.getElementById("Email").value
@@ -125,9 +124,17 @@ function update(){
         document.getElementById("Email").style.borderColor = "red";
         error++;
     }
-    if(have_diffirent_email(MSSV, Email) && is_present_email(Email)){
-        document.getElementById("Email").style.borderColor = "red";
-        error++;
+    if(have_diffirent_email(MSSV, Email)){
+        document.getElementById("Email").style.borderColor = "green";
+        var count =0;
+        for(i=0;i<listSV.length;i++){
+            if(listSV[i].Email == Email)
+                count++;
+        }
+        if(count >0){
+            document.getElementById("Email").style.borderColor = "red";
+            error++;
+        }   
     }
     if(error != 0)
     {
