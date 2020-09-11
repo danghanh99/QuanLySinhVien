@@ -57,25 +57,15 @@ function is_null_param(ID,value)
 }
 
 function create(){
-    let Id = document.getElementById("Id").value
     let Name = document.getElementById("Name").value
     let Email = document.getElementById("Email").value
 
     var error = 0;
     
-    if(is_present_student(Id) == true)
-    {
-        document.getElementById("Id").style.borderColor = "red";
-        return;
-    }
     if(is_present_email(Email) == true)
     {
         document.getElementById("Email").style.borderColor = "red";
         return;
-    }
-    if(is_null_param("Id",Id) == true)
-    {
-        error++;
     }
     if(is_null_param("Name",Name) == true)
     {
@@ -94,8 +84,9 @@ function create(){
     {
         return ;
     }
+    var id = list_student[list_student.length-1].Id+1
     list_student.push({
-                    Id: parseInt(Id),
+                    Id: id,
                     Name: Name,
                     Email: Email
                 })
@@ -163,7 +154,6 @@ function importRequestView(ID){
     document.getElementById("Id").value = sv.Id;
     document.getElementById("Name").value = sv.Name;
     document.getElementById("Email").value = sv.Email;
-    document.getElementById('Id').disabled = true;
     document.getElementById('update').style.visibility = 'visible'
     document.getElementById('create').style.visibility = 'hidden'
 }
@@ -177,7 +167,6 @@ function clear_request_view(){
     document.getElementById("Name").style.borderColor = null
     document.getElementById("Email").style.borderColor = null
 
-    document.getElementById('Id').disabled = false;
     document.getElementById('update').style.visibility = 'hidden'
     document.getElementById('create').style.visibility = 'visible'
 
